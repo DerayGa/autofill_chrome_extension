@@ -3,6 +3,7 @@ var fillInfo;
 
 
 $(document).ready(function(){
+
   chrome.storage.sync.get({
     fillInfo: []
   }, function(items) {
