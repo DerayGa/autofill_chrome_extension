@@ -18,9 +18,12 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["*://ebank.taipeifubon.com.tw/*", "*://ebank.esunbank.com.tw/*",
-      "*://www.chb.com.tw/*", "*://ebank.yuantabank.com.tw/*", "*://mma.sinopac.com/*"],
-      "js": ["jquery.min.js", "autofill.js"]
+      "matches": ["*://ebank.taipeifubon.com.tw/B2C/common/Index.faces",
+      "*://ebank.esunbank.com.tw/index.jsp",
+      "*://www.chb.com.tw/wcm/web/home/index.html",
+      "*://ebank.yuantabank.com.tw/ib/ibanc.jsp",
+      "*://mma.sinopac.com/MemberPortal/Member/NextWebLogin.aspx"],
+      "js": ["./js/jquery.min.js", "./js/autofill.js"]
     }
   ],
   "permissions": [
