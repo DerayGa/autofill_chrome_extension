@@ -1,38 +1,54 @@
 var fillButton;
 var fillInfo;
-
+var keyHex = "";
 
 $(document).ready(function(){
+  var connect = chrome.runtime.connect({name:"mycontentscript"});
+  connect.onMessage.addListener(getMessage);
+  function getMessage(message,sender){
+    connect.onMessage.removeListener(getMessage);
+    key = message.key || '';
 
-  chrome.storage.sync.get({
-    fillInfo: []
-  }, function(items) {
-    fillInfo = items.fillInfo;
+    key = CryptoJS.MD5(key).toString()+ '0000000000000000';
 
-    if(!fillInfo) return;
+    keyHex = CryptoJS.enc.Hex.parse(key);
 
-    fillButton = $('<button style="background-color:#2196F3;border:none;color:white;font-size:x-large;position:fixed;bottom:0px;right:0px;width:100%;height:35px;z-index:99999">自動填寫</button>')
+    chrome.storage.sync.get({
+      fillInfo: []
+    }, function(items) {
+      fillInfo = items.fillInfo;
+      var password = fillInfo.password || {}
+      if(!fillInfo) return;
 
-    if(fillInfo.password.taipeifubon && document.title.indexOf('富邦') > -1) {
-      taipeifubon();
-    }
+      fillButton = $('<button style="background-color:#2196F3;border:none;color:white;font-size:x-large;position:fixed;bottom:0px;right:0px;width:100%;height:35px;z-index:99999">自動填寫</button>')
 
-    if(fillInfo.password.esunbank && document.title.indexOf('玉山') > -1) {
-      esunbank();
-    }
+      fillInfo.uid = decrypt(fillInfo.uid);
+      fillInfo.uuid = decrypt(fillInfo.uuid);
+      $.each(password, function(index, value){
+        password[index] = decrypt(password[index]);
+      });
 
-    if(fillInfo.password.chb && document.title.indexOf('彰化') > -1) {
-      chb();
-    }
+      if(password.taipeifubon && document.title.indexOf('富邦') > -1) {
+        taipeifubon();
+      }
 
-    if(fillInfo.password.yuantabank && document.title.indexOf('元大') > -1) {
-      yuantabank();
-    }
+      if(password.esunbank && document.title.indexOf('玉山') > -1) {
+        esunbank();
+      }
 
-    if(fillInfo.password.sinopac && document.title.indexOf('永豐') > -1) {
-      sinopac();
-    }
-  });
+      if(password.chb && document.title.indexOf('彰化') > -1) {
+        chb();
+      }
+
+      if(password.yuantabank && document.title.indexOf('元大') > -1) {
+        yuantabank();
+      }
+
+      if(password.sinopac && document.title.indexOf('永豐') > -1) {
+        sinopac();
+      }
+    });
+  }
 })
 
 function taipeifubon(){

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Autofill ebank info",
   "description": "This extension will help me autofill login info.",
-  "version": "1.0",
+  "version": "2.0",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -23,10 +23,16 @@
       "*://www.chb.com.tw/wcm/web/home/index.html",
       "*://ebank.yuantabank.com.tw/ib/ibanc.jsp",
       "*://mma.sinopac.com/MemberPortal/Member/NextWebLogin.aspx"],
-      "js": ["./js/jquery.min.js", "./js/autofill.js"]
+      "js": ["./js/jquery.min.js", "./js/tripledes.js", "./js/des.js", "./js/autofill.js"]
     }
   ],
+  "background": {
+    "scripts": ["./js/background.js"]
+  },
   "permissions": [
-    "storage"
+    "tabs",
+    "storage",
+    "identity",
+    "identity.email"
   ]
 }

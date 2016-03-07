@@ -1,13 +1,15 @@
+var keyHex = "";
+
 function getFillInfo() {
   var info = { password:{} };
 
-  info.uid = $('#uid').val();
-  info.uuid = $('#uuid').val();
-  info.password.taipeifubon = $('#password-taipeifubon').val();
-  info.password.esunbank = $('#password-esunbank').val();
-  info.password.chb = $('#password-chb').val();
-  info.password.yuantabank = $('#password-yuantabank').val();
-  info.password.sinopac = $('#password-sinopac').val();
+  info.uid = encrypt($('#uid').val());
+  info.uuid = encrypt($('#uuid').val());
+  info.password.taipeifubon = encrypt($('#password-taipeifubon').val());
+  info.password.esunbank = encrypt($('#password-esunbank').val());
+  info.password.chb = encrypt($('#password-chb').val());
+  info.password.yuantabank = encrypt($('#password-yuantabank').val());
+  info.password.sinopac = encrypt($('#password-sinopac').val());
 
   return info;
 }
@@ -16,15 +18,16 @@ function restore_options() {
   chrome.storage.sync.get({
     fillInfo: []
   }, function(items) {
+
     var fillInfo = items.fillInfo;
-    var password = fillInfo.password;
-    $('#uid').val(fillInfo.uid);
-    $('#uuid').val(fillInfo.uuid);
-    $('#password-taipeifubon').val(password.taipeifubon);
-    $('#password-esunbank').val(password.esunbank);
-    $('#password-chb').val(password.chb);
-    $('#password-yuantabank').val(password.yuantabank);
-    $('#password-sinopac').val(password.sinopac);
+    var password = fillInfo.password || {};
+    $('#uid').val(decrypt(fillInfo.uid));
+    $('#uuid').val(decrypt(fillInfo.uuid));
+    $('#password-taipeifubon').val(decrypt(password.taipeifubon));
+    $('#password-esunbank').val(decrypt(password.esunbank));
+    $('#password-chb').val(decrypt(password.chb));
+    $('#password-yuantabank').val(decrypt(password.yuantabank));
+    $('#password-sinopac').val(decrypt(password.sinopac));
   });
 }
 
@@ -36,7 +39,16 @@ function save_options() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  chrome.identity.getProfileUserInfo(function (userInfo){
+    var key = userInfo.email || '';
+
+    key = CryptoJS.MD5(key).toString()+ '0000000000000000';
+
+    keyHex = CryptoJS.enc.Hex.parse(key);
+
+    restore_options();
+  });
+
   $('#save').click(save_options);
 
-  restore_options();
 });
