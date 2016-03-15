@@ -121,8 +121,10 @@ function chb(){
       $(m1_uuid).val(fillInfo.uuid);
 
     var m1_password = $('#_SSO_PWD_');
-    if(m1_password)
+    if(m1_password) {
       $(m1_password).val(fillInfo.password.chb);
+      $(m1_password).focus();
+    }
 
     $(fillButton).remove();
   });
