@@ -106,7 +106,9 @@ function esunbank(){
     $(fillButton).remove();
   });
 
-  $(fillButton).trigger('click');
+  window.setTimeout(function(){
+    $(fillButton).trigger('click');
+  }, 1000);
 }
 
 function chb(){
@@ -131,7 +133,9 @@ function chb(){
     $(fillButton).remove();
   });
 
-  $(fillButton).trigger('click');
+  window.setTimeout(function(){
+    $(fillButton).trigger('click');
+  }, 1000);
 }
 
 function yuantabank(){
@@ -162,7 +166,9 @@ function yuantabank(){
     $(fillButton).remove();
   });
 
-  $(fillButton).trigger('click');
+  window.setTimeout(function(){
+    $(fillButton).trigger('click');
+  }, 1000);
 }
 
 function sinopac(){
