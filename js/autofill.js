@@ -145,14 +145,21 @@ function chb() {
     if (m1_password) {
       $(m1_password).val(fillInfo.password.chb);
       $(m1_password).focus();
+
+
+      var submitBtn = $('#submitBtn');
+
+      if (m1_password) {
+        $(submitBtn).trigger( "click" );
+      }
     }
 
     $(fillButton).remove();
   });
 
-  window.setTimeout(function() {
+  //window.setTimeout(function() {
     $(fillButton).trigger('click');
-  }, 1000);
+  //}, 1000);
 }
 
 function yuantabank() {
@@ -183,9 +190,9 @@ function yuantabank() {
     $(fillButton).remove();
   });
 
-  window.setTimeout(function() {
+  $('frame[name="main"]').on('load', function(){
     $(fillButton).trigger('click');
-  }, 1000);
+  });
 }
 
 function sinopac() {
