@@ -56,17 +56,17 @@ $(document).ready(function() {
 
 function taipeifubon() {
   $('frameset', document).parent().append($(fillButton));
-  console.log('ga')
   var frame1 = $('#frame1');
   if (frame1) {
     $(frame1).on('load', function(){
       console.log('load')
-      var txnFrame = $('#txnFrame', frame1.contents());
-      if (txnFrame) {
-        var contents = txnFrame.contents();
+      var contents = frame1.contents();
 
-        var logout = $(".logout", contents);
-        console.log(logout)
+      var header_login = $('#header_form\\:header_login', contents);
+      if (header_login) {
+        $(header_login).bind('click', function() {
+          $(fillButton).trigger('click');
+        });
       }
     });
   }
