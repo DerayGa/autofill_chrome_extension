@@ -117,8 +117,15 @@ function esunbank() {
       $(m1_uuid).val(fillInfo.uuid);
 
     var m1_password = $('#loginform\\:passwd', contents);
-    if (m1_password)
+    if (m1_password) {
       $(m1_password).val(fillInfo.password.esunbank);
+
+      var linkCommand = $('#loginform\\:linkCommand', contents);
+      if (linkCommand) {
+        $(linkCommand).trigger('click');
+      }
+    }
+
 
     $(fillButton).remove();
   });
@@ -146,11 +153,10 @@ function chb() {
       $(m1_password).val(fillInfo.password.chb);
       $(m1_password).focus();
 
-
       var submitBtn = $('#submitBtn');
 
-      if (m1_password) {
-        $(submitBtn).trigger( "click" );
+      if (submitBtn) {
+        $(submitBtn).trigger('click');
       }
     }
 
