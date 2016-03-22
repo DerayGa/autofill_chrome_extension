@@ -56,20 +56,6 @@ $(document).ready(function() {
 
 function taipeifubon() {
   $('frameset', document).parent().append($(fillButton));
-  var frame1 = $('#frame1');
-  if (frame1) {
-    $(frame1).on('load', function(){
-      console.log('load')
-      var contents = frame1.contents();
-
-      var header_login = $('#header_form\\:header_login', contents);
-      if (header_login) {
-        $(header_login).bind('click', function() {
-          $(fillButton).trigger('click');
-        });
-      }
-    });
-  }
 
   $(fillButton).click(function() {
     var frame1 = $('#frame1');
@@ -97,6 +83,18 @@ function taipeifubon() {
 
     $(fillButton).remove();
   });
+
+
+  $('#frame1').on('load', function(){
+    var contents = $('#frame1').contents();
+
+    var header_login = $('#header_form\\:header_login', contents);
+    if (header_login) {
+      $(header_login).bind('click', function() {
+        $(fillButton).trigger('click');
+      });
+    }
+  });
 }
 
 function esunbank() {
@@ -119,13 +117,8 @@ function esunbank() {
     var m1_password = $('#loginform\\:passwd', contents);
     if (m1_password) {
       $(m1_password).val(fillInfo.password.esunbank);
-
-      var linkCommand = $('#loginform\\:linkCommand', contents);
-      if (linkCommand) {
-        $(linkCommand).trigger('click');
-      }
+      $(m1_password).focus();
     }
-
 
     $(fillButton).remove();
   });
