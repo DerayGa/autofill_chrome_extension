@@ -10,7 +10,7 @@ function getFillInfo() {
   info.password.chb = encrypt($('#password-chb').val());
   info.password.yuantabank = encrypt($('#password-yuantabank').val());
   info.password.sinopac = encrypt($('#password-sinopac').val());
-  //info.password.taishin = encrypt($('#password-taishin').val());
+  info.password.taishin = encrypt($('#password-taishin').val());
 
   return info;
 }
@@ -29,7 +29,7 @@ function restore_options() {
     $('#password-chb').val(decrypt(password.chb));
     $('#password-yuantabank').val(decrypt(password.yuantabank));
     $('#password-sinopac').val(decrypt(password.sinopac));
-    //$('#password-taishin').val(decrypt(password.taishin));
+    $('#password-taishin').val(decrypt(password.taishin));
   });
 }
 

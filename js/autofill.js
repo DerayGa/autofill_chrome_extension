@@ -52,9 +52,9 @@ $(document).ready(function() {
         sinopac();
       }
 
-      //if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
-      //  taishin();
-      //}
+      if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
+        taishin();
+      }
     });
   }
 })
@@ -232,7 +232,7 @@ function taishin(){
       $(usercode).val(fillInfo.uuid);
 
     var password = $("#password");
-    if (password)
+    if (password && fillInfo.password.taishin)
       $(password).val(fillInfo.password.taishin);
 
     var authcode = $('#authcode');
