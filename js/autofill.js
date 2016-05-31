@@ -52,9 +52,9 @@ $(document).ready(function() {
         sinopac();
       }
 
-      if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
-        taishin();
-      }
+      //if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
+      //  taishin();
+      //}
     });
   }
 })
