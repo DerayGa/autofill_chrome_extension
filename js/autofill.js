@@ -6,6 +6,7 @@ $(document).ready(function() {
   var connect = chrome.runtime.connect({
     name: "mycontentscript"
   });
+
   connect.onMessage.addListener(getMessage);
 
   function getMessage(message, sender) {
@@ -50,6 +51,10 @@ $(document).ready(function() {
       if (password.sinopac && document.title.indexOf('永豐') > -1) {
         sinopac();
       }
+
+      if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
+        taishin();
+      }
     });
   }
 })
@@ -83,7 +88,6 @@ function taipeifubon() {
 
     $(fillButton).remove();
   });
-
 
   $('#frame1').on('load', function(){
     var contents = $('#frame1').contents();
@@ -213,4 +217,32 @@ function sinopac() {
 
     $(fillButton).remove();
   });
+}
+
+function taishin(){
+  $(document.body).append($(fillButton));
+
+  $(fillButton).click(function() {
+    var userid = $("#userid");
+    if (userid)
+      $(userid).val(fillInfo.uid);
+
+    var usercode = $("#usercode");
+    if (usercode)
+      $(usercode).val(fillInfo.uuid);
+
+    var password = $("#password");
+    if (password)
+      $(password).val(fillInfo.password.taishin);
+
+    var authcode = $('#authcode');
+    if (authcode)
+      $(authcode).focus();
+
+    $(fillButton).remove();
+  });
+
+  //window.setTimeout(function() {
+    $(fillButton).trigger('click');
+  //}, 1000);
 }
