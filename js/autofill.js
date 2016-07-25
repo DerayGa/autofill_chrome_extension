@@ -136,33 +136,35 @@ function chb() {
   $(document.body).append($(fillButton));
 
   $(fillButton).click(function() {
+    var form1 = $('#form1');
+    if (!form1) return;
 
-    var custid = $("#_SSO_UID_");
+    var contents = form1.contents();
+
+    var custid = $("#_SSO_UID_PB_", contents);
     if (custid)
       $(custid).val(fillInfo.uid);
 
-    var m1_uuid = $('#_SSO_UUID_');
+    var m1_uuid = $('#_SSO_UUID_PB_', contents);
     if (m1_uuid)
       $(m1_uuid).val(fillInfo.uuid);
 
-    var m1_password = $('#_SSO_PWD_');
+    var m1_password = $('#_SSO_PWD_PB_', contents);
     if (m1_password) {
       $(m1_password).val(fillInfo.password.chb);
-      $(m1_password).focus();
+    }
 
-      var submitBtn = $('#submitBtn');
-
-      if (submitBtn) {
-        $(submitBtn).trigger('click');
-      }
+    var txtValidateCode = $('#form1\\:txtValidateCode', contents);
+    if (txtValidateCode) {
+      $(txtValidateCode).focus();
     }
 
     $(fillButton).remove();
   });
 
-  //window.setTimeout(function() {
+  //$('#form1').on('load', function(){
     $(fillButton).trigger('click');
-  //}, 1000);
+  //});
 }
 
 function yuantabank() {

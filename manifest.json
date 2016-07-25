@@ -20,7 +20,7 @@
     {
       "matches": ["*://ebank.taipeifubon.com.tw/B2C/common/Index.faces",
       "*://ebank.esunbank.com.tw/index.jsp",
-      "*://www.chb.com.tw/wcm/web/home/index.html",
+      "*://www.chb.com.tw/chbib/faces/login/CHBLoginEng.jsp",
       "*://ebank.yuantabank.com.tw/ib/ibanc.jsp",
       "*://mma.sinopac.com/MemberPortal/Member/NextWebLogin.aspx",
       "*://my.taishinbank.com.tw/TIBTWWeb/RB00/RB00010002.jsp"],
