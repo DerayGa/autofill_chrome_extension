@@ -55,6 +55,10 @@ $(document).ready(function() {
       if (password.taishin && document.URL.indexOf('taishinbank') > -1) {
         taishin();
       }
+
+      if (password.ctbcbank && document.title.indexOf('中國信託') > -1) {
+        ctbcbank();
+      }
     });
   }
 })
@@ -133,9 +137,7 @@ function esunbank() {
 }
 
 function chb() {
-  $(document.body).append($(fillButton));
-
-  $(fillButton).click(function() {
+  function autoFillChb() {
     var form1 = $('#form1');
     if (!form1) return;
 
@@ -158,19 +160,12 @@ function chb() {
     if (txtValidateCode) {
       $(txtValidateCode).focus();
     }
-
-    $(fillButton).remove();
-  });
-
-  //$('#form1').on('load', function(){
-    $(fillButton).trigger('click');
-  //});
+  }
+  autoFillChb();
 }
 
 function yuantabank() {
-  $('frameset', document).parent().append($(fillButton));
-
-  $(fillButton).click(function() {
+  function autoFillYuantabank() {
     var frame = $('frame[name="main"]');
     if (!frame) return;
 
@@ -191,12 +186,10 @@ function yuantabank() {
     var m1_userCaptcha = $('#gcode', contents);
     if (m1_userCaptcha)
       $(m1_userCaptcha).focus();
-
-    $(fillButton).remove();
-  });
+  }
 
   $('frame[name="main"]').on('load', function(){
-    $(fillButton).trigger('click');
+    autoFillYuantabank();
   });
 }
 
@@ -222,9 +215,7 @@ function sinopac() {
 }
 
 function taishin(){
-  $(document.body).append($(fillButton));
-
-  $(fillButton).click(function() {
+  function autoFillTaishin() {
     var userid = $("#userid");
     if (userid)
       $(userid).val(fillInfo.uid);
@@ -240,11 +231,24 @@ function taishin(){
     var authcode = $('#authcode');
     if (authcode)
       $(authcode).focus();
+  }
+  autoFillTaishin();
+}
 
-    $(fillButton).remove();
-  });
+function ctbcbank(){
+  function autoFillCtbcbank() {
+    var inputs = $('.form_list > li > input');
+    if (inputs[0])
+      $(inputs[0]).val(fillInfo.uid)
 
-  //window.setTimeout(function() {
-    $(fillButton).trigger('click');
-  //}, 1000);
+    if (inputs[1])
+      $(inputs[1]).val(fillInfo.uuid)
+
+    if (inputs[2] && fillInfo.password.ctbcbank)
+      $(inputs[2]).val(fillInfo.password.ctbcbank)
+
+    if (inputs[3])
+      $(inputs[3]).focus();
+  }
+  autoFillCtbcbank();
 }
