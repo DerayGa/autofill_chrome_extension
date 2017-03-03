@@ -210,7 +210,7 @@ function sinopac() {
     if (m1_password)
       $(m1_password).val(fillInfo.password.sinopac);
 
-    var m1_userCaptcha = $('ctl00_ctl00_ContentPlaceHolder1_DefaultContent_captcha');
+    var m1_userCaptcha = $('#ctl00_ctl00_ContentPlaceHolder1_DefaultContent_captcha');
     if (m1_userCaptcha)
       $(m1_userCaptcha).focus();
 
