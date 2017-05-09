@@ -138,25 +138,23 @@ function esunbank() {
 
 function chb() {
   function autoFillChb() {
-    var form1 = $('#form1');
+    var form1 = $('.login-form-wrap');
     if (!form1) return;
 
-    var contents = form1.contents();
-
-    var custid = $("#_SSO_UID_PB_", contents);
+    var custid = $("input[name=uid]", form1);
     if (custid)
       $(custid).val(fillInfo.uid);
 
-    var m1_uuid = $('#_SSO_UUID_PB_', contents);
+    var m1_uuid = $('input[name=uuid]', form1);
     if (m1_uuid)
       $(m1_uuid).val(fillInfo.uuid);
 
-    var m1_password = $('#_SSO_PWD_PB_', contents);
+    var m1_password = $('input[name=pwd]', form1);
     if (m1_password) {
       $(m1_password).val(fillInfo.password.chb);
     }
 
-    var txtValidateCode = $('#form1\\:txtValidateCode', contents);
+    var txtValidateCode = $('input[name=captcha]', form1);
     if (txtValidateCode) {
       $(txtValidateCode).focus();
     }
