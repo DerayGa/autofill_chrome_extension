@@ -59,6 +59,9 @@ $(document).ready(function() {
       if (password.ctbcbank && document.title.indexOf('中國信託') > -1) {
         ctbcbank();
       }
+      if (password.hncb && document.title.indexOf('華南') > -1) {
+        hncb();
+      }
     });
   }
 })
@@ -253,4 +256,30 @@ function ctbcbank(){
       $(inputs[3]).focus();
   }
   autoFillCtbcbank();
+}
+
+function hncb(){
+  function autoFillHncb() {
+    var form1 = $('#LoginForm_post');
+    if (!form1) return;
+
+    var userid = $("#USERID", form1);
+    if (userid && !($(userid).val()))
+      $(userid).val(fillInfo.uid);
+
+    var usercode = $("#NICKNAME", form1);
+    if (usercode && !($(usercode).val()))
+      $(usercode).val(fillInfo.uuid);
+
+    var password = $("#password", form1);
+    if (password && fillInfo.password.hncb) {
+      $("#pwdText", form1).focus();
+      $(password).val(fillInfo.password.hncb);
+    }
+
+    var authcode = $('#TrxCaptchaKey', form1);
+    if (authcode)
+      $(authcode).focus();
+  }
+  autoFillHncb();
 }

@@ -12,6 +12,7 @@ function getFillInfo() {
   info.password.sinopac = encrypt($('#password-sinopac').val());
   info.password.taishin = encrypt($('#password-taishin').val());
   info.password.ctbcbank = encrypt($('#password-ctbcbank').val());
+  info.password.hncb = encrypt($('#password-hncb').val());
 
   return info;
 }
@@ -32,6 +33,7 @@ function restore_options() {
     $('#password-sinopac').val(decrypt(password.sinopac));
     $('#password-taishin').val(decrypt(password.taishin));
     $('#password-ctbcbank').val(decrypt(password.ctbcbank));
+    $('#password-hncb').val(decrypt(password.hncb));
   });
 }
 
