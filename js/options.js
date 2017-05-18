@@ -13,6 +13,7 @@ function getFillInfo() {
   info.password.taishin = encrypt($('#password-taishin').val());
   info.password.ctbcbank = encrypt($('#password-ctbcbank').val());
   info.password.hncb = encrypt($('#password-hncb').val());
+  info.password.citi = encrypt($('#password-citi').val());
 
   return info;
 }
@@ -34,6 +35,7 @@ function restore_options() {
     $('#password-taishin').val(decrypt(password.taishin));
     $('#password-ctbcbank').val(decrypt(password.ctbcbank));
     $('#password-hncb').val(decrypt(password.hncb));
+    $('#password-citi').val(decrypt(password.citi));
   });
 }
 
