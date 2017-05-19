@@ -291,14 +291,11 @@ function hncb(){
 
 function citi(){
   function autoFillCiti() {
-    var form1 = $('#SignonForm');
-    if (!form1) return;
-
-    var username = $("#username", form1);
+    var username = $("#username");
     if (username && !($(username).val()))
       $(username).val(fillInfo.uuid);
 
-    var password = $("#password", form1);
+    var password = $("#password");
     if (password && fillInfo.password.citi) {
       $(password).val(fillInfo.password.citi);
     }
