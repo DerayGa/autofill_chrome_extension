@@ -22,6 +22,7 @@ $(document).ready(function() {
     }, function(items) {
       fillInfo = items.fillInfo;
       var password = fillInfo.password || {}
+      var account = fillInfo.account || {}
       if (!fillInfo) return;
 
       fillButton = $('<button style="background-color:#2196F3;border:none;color:white;font-size:x-large;position:fixed;bottom:0px;right:0px;width:100%;height:35px;z-index:99999">自動填寫</button>')
@@ -30,6 +31,9 @@ $(document).ready(function() {
       fillInfo.uuid = decrypt(fillInfo.uuid);
       $.each(password, function(index, value) {
         password[index] = decrypt(password[index]);
+      });
+      $.each(account, function(index, value) {
+        account[index] = decrypt(account[index]);
       });
 
       if (password.taipeifubon && document.title.indexOf('富邦') > -1) {
@@ -66,6 +70,9 @@ $(document).ready(function() {
 
       if (password.citi && document.title.indexOf('Citibank') > -1) {
         citi();
+      }
+      if (password.post && document.title.indexOf('郵局') > -1) {
+        post();
       }
     });
   }
@@ -301,4 +308,23 @@ function citi(){
     }
   }
   autoFillCiti();
+}
+
+function post(){
+  console.log('ga');
+  function autoFillPost() {
+    var account = $("input[ng-model=userActNo]");
+    if (account && !($(account).val()))
+        $(account).val(fillInfo.account.post);
+
+    var username = $("#userID_2 > input");
+    if (username && !($(username).val()))
+      $(username).val(fillInfo.uuid);
+
+    var password = $("#userPWD_2 > input");
+    if (password && fillInfo.password.post) {
+      $(password).val(fillInfo.password.post);
+    }
+  }
+  autoFillPost();
 }

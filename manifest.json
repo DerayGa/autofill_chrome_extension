@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Autofill ebank info",
   "description": "This extension will help me autofill login info.",
-  "version": "2.7.1",
+  "version": "2.8.1",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -26,7 +26,8 @@
       "*://my.taishinbank.com.tw/TIBTWWeb/RB00/RB00010002.jsp",
       "*://www.ctbcbank.com/CTCBPortalWeb/toPage?id=*",
       "*://netbank.hncb.com.tw/netbank/servlet/TrxDispatcher?trx=com.lb.wibc.trx.Login&*",
-      "*://www.citibank.com.tw/TWGCB/JSO/signon/DisplayUsernameSignon.do"],
+      "*://www.citibank.com.tw/TWGCB/JSO/signon/DisplayUsernameSignon.do",
+      "*://ipost.post.gov.tw/pst/*"],
       "js": ["./js/jquery.min.js", "./js/tripledes.js", "./js/des.js", "./js/autofill.js"]
     }
   ],
