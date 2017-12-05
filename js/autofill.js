@@ -311,7 +311,6 @@ function citi(){
 }
 
 function post(){
-  console.log('ga');
   function autoFillPost() {
     var account = $("input[ng-model=userActNo]");
     if (account && !($(account).val()))
