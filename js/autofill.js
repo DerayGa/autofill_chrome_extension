@@ -76,7 +76,7 @@ $(document).ready(function() {
       }
     });
   }
-})
+});
 
 function taipeifubon() {
   $('frameset', document).parent().append($(fillButton));
@@ -253,19 +253,30 @@ function taishin(){
 }
 
 function ctbcbank(){
+  var count = 10;
   function autoFillCtbcbank() {
-    var inputs = $('.form_list > li > input');
-    if (inputs[0])
-      $(inputs[0]).val(fillInfo.uid)
+    var inputs = $('form > div.form-section > div.form_group > div.input_field > input');
+    input0 = $('form > div.form-section > div.form_group > div.input_field > input')[0];
 
-    if (inputs[1])
-      $(inputs[1]).val(fillInfo.uuid)
+    if (inputs.length == 0 && count-- > 0) {
+      setTimeout(autoFillCtbcbank, 500);
+      return;
+    }
 
-    if (inputs[2] && fillInfo.password.ctbcbank)
-      $(inputs[2]).val(fillInfo.password.ctbcbank)
+    if (inputs[0]) {
+      $(inputs[0]).val(fillInfo.uid);
+      inputs[0].dispatchEvent(new Event('input'));
+    }
 
-    if (inputs[3])
-      $(inputs[3]).focus();
+    if (inputs[1]) {
+      $(inputs[1]).val(fillInfo.uuid);
+      inputs[1].dispatchEvent(new Event('input'));
+    }
+
+    if (inputs[2] && fillInfo.password.ctbcbank) {
+      $(inputs[2]).val(fillInfo.password.ctbcbank);
+      inputs[2].dispatchEvent(new Event('input'));
+    }
   }
   autoFillCtbcbank();
 }

@@ -26,7 +26,7 @@
       "*://my.taishinbank.com.tw/TIBTWWeb/RB00/RB00010002.jsp",
       "*://www.ctbcbank.com/CTCBPortalWeb/toPage?id=*",
       "*://netbank.hncb.com.tw/netbank/servlet/TrxDispatcher?trx=com.lb.wibc.trx.Login&*",
-      "*://www.citibank.com.tw/TWGCB/JSO/signon/DisplayUsernameSignon.do",
+      "*://www.ctbcbank.com/twrbc/twrbc-general/ot001/010",
       "*://ipost.post.gov.tw/pst/*"],
       "js": ["./js/jquery.min.js", "./js/tripledes.js", "./js/des.js", "./js/autofill.js"]
     }
