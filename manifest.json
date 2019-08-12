@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Autofill ebank info",
   "description": "This extension will help me autofill login info.",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

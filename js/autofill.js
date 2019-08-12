@@ -234,16 +234,22 @@ function sinopac() {
 function taishin(){
   function autoFillTaishin() {
     var userid = $("#userid");
-    if (userid)
+    if (userid) {
       $(userid).val(fillInfo.uid);
+      $(userid).focus();
+    }
 
     var usercode = $("#usercode");
-    if (usercode)
+    if (usercode) {
       $(usercode).val(fillInfo.uuid);
+      $(usercode).focus();
+    }
 
-    var password = $("#password");
-    if (password && fillInfo.password.taishin)
-      $(password).val(fillInfo.password.taishin);
+    var password = $("#password"); {
+      if (password && fillInfo.password.taishin)
+        $(password).val(fillInfo.password.taishin);
+      $(password).focus();
+    }
 
     var authcode = $('#authcode');
     if (authcode)
