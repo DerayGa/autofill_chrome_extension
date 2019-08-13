@@ -137,7 +137,7 @@ function esunbank() {
     if (m1_uuid)
       $(m1_uuid).val(fillInfo.uuid);
 
-    var m1_password = $('#loginform\\:passwd', contents);
+    var m1_password = $('#loginform\\:pxsswd', contents);
     if (m1_password) {
       $(m1_password).val(fillInfo.password.esunbank);
       $(m1_password).focus();
