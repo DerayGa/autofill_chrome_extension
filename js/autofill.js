@@ -329,18 +329,23 @@ function citi(){
 
 function post(){
   function autoFillPost() {
-    var account = $("input[ng-model=userActNo]");
-    if (account && !($(account).val()))
-        $(account).val(fillInfo.account.post);
-
-    var username = $("#userID_2 > input");
-    if (username && !($(username).val()))
+    var account = $("input[ng-model=cif_id]");
+    if (account) {
+      $(account).val(fillInfo.uid);
+      account[0].dispatchEvent(new Event('input'));
+    }
+    var username = $("input[ng-model=userID]");
+    if (username) {
       $(username).val(fillInfo.uuid);
-
-    var password = $("#userPWD_2 > input");
+    }
+    var password = $("input[ng-model=userPWD]");
     if (password && fillInfo.password.post) {
       $(password).val(fillInfo.password.post);
     }
+    var captcha = $("input[name=captcha]");
+    if (captcha)
+      $(captcha).focus();
+
   }
   autoFillPost();
 }
