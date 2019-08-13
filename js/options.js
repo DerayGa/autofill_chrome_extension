@@ -14,7 +14,6 @@ function getFillInfo() {
   info.password.ctbcbank = encrypt($('#password-ctbcbank').val());
   info.password.hncb = encrypt($('#password-hncb').val());
   info.password.citi = encrypt($('#password-citi').val());
-  info.account.post = encrypt($('#account-post').val());
   info.password.post = encrypt($('#password-post').val());
 
   return info;
@@ -39,7 +38,6 @@ function restore_options() {
     $('#password-ctbcbank').val(decrypt(password.ctbcbank));
     $('#password-hncb').val(decrypt(password.hncb));
     $('#password-citi').val(decrypt(password.citi));
-    $('#account-post').val(decrypt(account.post));
     $('#password-post').val(decrypt(password.post));
   });
 }
