@@ -27,6 +27,7 @@
       "*://www.ctbcbank.com/CTCBPortalWeb/toPage?id=*",
       "*://netbank.hncb.com.tw/netbank/servlet/TrxDispatcher?trx=com.lb.wibc.trx.Login&*",
       "*://www.ctbcbank.com/twrbc/twrbc-general/ot001/010",
+      "*://www.cathaybk.com.tw/MyBank",
       "*://ipost.post.gov.tw/pst/*"],
       "js": ["./js/jquery.min.js", "./js/tripledes.js", "./js/des.js", "./js/autofill.js"]
     }

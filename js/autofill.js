@@ -71,6 +71,11 @@ $(document).ready(function() {
       if (password.citi && document.title.indexOf('Citibank') > -1) {
         citi();
       }
+
+      if (password.cathaybk && document.title.indexOf('國泰世華') > -1) {
+        cathaybk();
+      }
+
       if (password.post && document.title.indexOf('郵局') > -1) {
         post();
       }
@@ -325,6 +330,24 @@ function citi(){
     }
   }
   autoFillCiti();
+}
+
+function cathaybk() {
+  function autoFillCathaybk() {
+    var account = $("input#CustID");
+    if (account)
+      $(account).val(fillInfo.uid);
+
+    var username = $("input#UserIdKeyin");
+    if (username)
+      $(username).val(fillInfo.uuid);
+
+    var password = $("input#passwordKeyin");
+    if (password && fillInfo.password.cathaybk)
+      $(password).val(fillInfo.password.cathaybk);
+
+  }
+  autoFillCathaybk();
 }
 
 function post(){
