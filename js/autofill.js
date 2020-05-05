@@ -215,20 +215,33 @@ function sinopac() {
   $(document.body).append($(fillButton));
 
   $(fillButton).click(function() {
+    var fields = $("#not-logged-in-form > div.rowElem");
 
-    var custid = $("#ctl00_ctl00_ContentPlaceHolder1_DefaultContent_id");
-    if (custid)
-      $(custid).val(fillInfo.uid);
+    var custid = $("input", fields[0]);
+    if (custid) {
+      $(custid[0]).click();
+      $(custid[0]).focus();
+      custid[0].dispatchEvent(new Event('input'));
+      $(custid[0]).val(fillInfo.uid);
+    }
 
-    var m1_uuid = $('#ctl00_ctl00_ContentPlaceHolder1_DefaultContent_usercode');
-    if (m1_uuid)
-      $(m1_uuid).val(fillInfo.uuid);
+    var m1_uuid = $("input", fields[1]);
+    if (m1_uuid) {
+      $(m1_uuid[0]).click();
+      $(m1_uuid[0]).focus();
+      m1_uuid[0].dispatchEvent(new Event('input'));
+      $(m1_uuid[0]).val(fillInfo.uuid);
+    }
 
-    var m1_password = $('#ctl00_ctl00_ContentPlaceHolder1_DefaultContent_PWD');
-    if (m1_password)
-      $(m1_password).val(fillInfo.password.sinopac);
+    var m1_password = $("input", fields[2]);
+    if (m1_password) {
+      $(m1_password[0]).click();
+      $(m1_password[0]).focus();
+      m1_password[0].dispatchEvent(new Event('input'));
+      $(m1_password[0]).val(fillInfo.password.sinopac);
+    }
 
-    var m1_userCaptcha = $('#ctl00_ctl00_ContentPlaceHolder1_DefaultContent_captcha');
+    var m1_userCaptcha = $("input", fields[3]);
     if (m1_userCaptcha)
       $(m1_userCaptcha).focus();
 
