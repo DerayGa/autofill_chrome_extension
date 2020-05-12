@@ -23,7 +23,7 @@
       "*://www.chb.com.tw/chbnib/faces/login/Login",
       "*://ebank.yuantabank.com.tw/ib/ibanc.jsp",
       "*://mma.sinopac.com/MemberPortal/Member/NextWebLogin.aspx",
-      "*://my.taishinbank.com.tw/TIBNetBank/",
+      "*://my.taishinbank.com.tw/TIBNetBank/*",
       "*://www.ctbcbank.com/CTCBPortalWeb/toPage?id=*",
       "*://netbank.hncb.com.tw/netbank/servlet/TrxDispatcher?trx=com.lb.wibc.trx.Login&*",
       "*://www.ctbcbank.com/twrbc/twrbc-general/ot001/010",
