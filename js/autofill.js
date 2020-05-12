@@ -250,30 +250,38 @@ function sinopac() {
 }
 
 function taishin(){
-  function autoFillTaishin() {
-    var userid = $("#userid");
-    if (userid) {
-      $(userid).val(fillInfo.uid);
-      $(userid).focus();
+    function autoFillTaishin() {
+        var frame = $('frame[name="_mainFrame"]');
+        if (!frame) return;
+
+        var contents = frame.contents();
+
+        var userid = $("#userid", contents);
+        if (userid) {
+            $(userid).val(fillInfo.uid);
+            $(userid).focus();
+        }
+
+        var usercode = $("#usercode", contents);
+        if (usercode) {
+            $(usercode).val(fillInfo.uuid);
+            $(usercode).focus();
+        }
+
+        var password = $("#password", contents); {
+            if (password && fillInfo.password.taishin)
+                $(password).val(fillInfo.password.taishin);
+            $(password).focus();
+        }
+
+        var authcode = $("#authcode", contents);
+        if (authcode)
+            $(authcode).focus();
     }
 
-    var usercode = $("#usercode");
-    if (usercode) {
-      $(usercode).val(fillInfo.uuid);
-      $(usercode).focus();
-    }
-
-    var password = $("#password"); {
-      if (password && fillInfo.password.taishin)
-        $(password).val(fillInfo.password.taishin);
-      $(password).focus();
-    }
-
-    var authcode = $('#authcode');
-    if (authcode)
-      $(authcode).focus();
-  }
-  autoFillTaishin();
+    $('frame[name="_mainFrame"]').on('load', function(){
+        autoFillTaishin();
+    });
 }
 
 function ctbcbank(){
