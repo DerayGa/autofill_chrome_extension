@@ -15,6 +15,7 @@ function getFillInfo() {
   info.password.hncb = encrypt($('#password-hncb').val());
   info.password.citi = encrypt($('#password-citi').val());
   info.password.cathaybk = encrypt($('#password-cathaybk').val());
+  info.password.landbank = encrypt($('#password-landbank').val());
   info.password.post = encrypt($('#password-post').val());
 
   return info;
@@ -39,6 +40,7 @@ function restore_options() {
     $('#password-hncb').val(decrypt(password.hncb));
     $('#password-citi').val(decrypt(password.citi));
     $('#password-cathaybk').val(decrypt(password.cathaybk));
+    $('#password-landbank').val(decrypt(password.landbank));
     $('#password-post').val(decrypt(password.post));
   });
 }

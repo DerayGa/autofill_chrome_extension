@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Autofill ebank info",
   "description": "This extension will help me autofill login info.",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -28,7 +28,8 @@
       "*://netbank.hncb.com.tw/netbank/servlet/TrxDispatcher?trx=com.lb.wibc.trx.Login&*",
       "*://www.ctbcbank.com/twrbc/twrbc-general/ot001/010",
       "*://www.cathaybk.com.tw/MyBank",
-      "*://ipost.post.gov.tw/pst/*"],
+      "*://ipost.post.gov.tw/pst/*",
+      "*://mybank.landbank.com.tw/DesktopDefault.htm"],
       "js": ["./js/jquery.min.js", "./js/tripledes.js", "./js/des.js", "./js/autofill.js"]
     }
   ],
