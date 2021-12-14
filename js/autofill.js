@@ -104,24 +104,23 @@ function taipeifubon() {
         }
         var contents = txnFrame.contents();
 
-        var m1_uid = $('#m1_uid', contents);
-        if (m1_uid) {
-            $(m1_uid).val(fillInfo.uid);
+        var table = $('table[class="login_tb"]:first', contents);
+        var inputs = $('input', table);
+
+        if (inputs[0]) {
+            $(inputs[0]).val(fillInfo.uid);
         }
 
-        var m1_uuid = $('#m1_uuid', contents);
-        if (m1_uuid) {
-            $(m1_uuid).val(fillInfo.uuid);
+        if (inputs[1]) {
+            $(inputs[1]).val(fillInfo.uuid);
         }
 
-        var m1_password = $('#m1_password', contents);
-        if (m1_password) {
-            $(m1_password).val(fillInfo.password.taipeifubon);
+        if (inputs[2]) {
+            $(inputs[2]).val(fillInfo.password.taipeifubon);
         }
 
-        var m1_userCaptcha = $('#m1_userCaptcha', contents);
-        if (m1_userCaptcha) {
-            $(m1_userCaptcha).focus();
+        if (inputs[3]) {
+            $(inputs[3]).focus();
         }
 
         $(fillButton).remove();
