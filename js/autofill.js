@@ -299,7 +299,7 @@ function taishin() {
             $(usercode).focus();
         }
 
-        var password = $("#password", contents);
+        var password = $("#pincode", contents);
         if (password) {
             if (fillInfo.password.taishin) {
                 $(password).val(fillInfo.password.taishin);
