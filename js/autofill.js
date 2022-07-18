@@ -455,7 +455,7 @@ function landbank() {
     }
 
     $('iframe[src="/Account/Login"]').on('load', function() {
-        autoFillLandbank();
+        setTimeout(autoFillLandbank, 1000);
     });
 }
 
